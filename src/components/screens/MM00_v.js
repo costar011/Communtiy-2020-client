@@ -1,6 +1,7 @@
 import React from "react";
 import Reveal from "react-reveal/Reveal";
 import Fade from "react-reveal/Fade";
+import { Link } from "react-router-dom";
 
 const menus = [];
 
@@ -12,17 +13,17 @@ class MM00_v extends React.Component {
       menus: [
         {
           menuName: "FREE BOARD",
-          link: "",
+          link: "/freeboard",
         },
 
         {
           menuName: "DOCUMENTS BOARD",
-          link: "",
+          link: "/docsboard",
         },
 
         {
           menuName: "GALLARY",
-          link: "",
+          link: "/gallaryboard",
         },
       ],
     };
@@ -38,7 +39,9 @@ class MM00_v extends React.Component {
           {menus.map((menu, idx) => {
             return (
               <Fade bottom delay={idx * 300} key={idx}>
-                <div className="MM00_v__menuBox__menu">{menu.menuName}</div>
+                <Link to={menu.link}>
+                  <div className="MM00_v__menuBox__menu">{menu.menuName}</div>
+                </Link>
               </Fade>
             );
           })}
