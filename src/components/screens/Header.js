@@ -2,7 +2,7 @@ import React from "react";
 
 class Hedaer extends React.Component {
   render() {
-    return <div>hedaer</div>;
+    return <div className="Header">Hedaer</div>;
   }
 }
 export default Hedaer;
