@@ -3,7 +3,6 @@ import styled from "styled-components";
 const BORDER = `1px solid rgb(140, 140, 140)`;
 const BORDER_RADIUS = `4px`;
 
-// Wrapper 는 무언가를 감싸고 기본적으로 css를 갖고있다.
 export const WholeWrapper = styled.div`
   width: 100%;
   height: calc(100vh - 80px);
@@ -11,9 +10,10 @@ export const WholeWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 `;
 
+// Wrapper 는 무언가를 감싸고 기본적으로 css를 갖고있다.
 export const Wrapper = styled.div`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
@@ -38,6 +38,21 @@ export const Wrapper = styled.div`
   &:not() {
     border-right: 1px soild #fff;
   }
+`;
+
+export const TitleWrapper = styled.div`
+  width: 100%;
+  margin: 100px 0px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Title = styled.h2`
+  font-size: 26px;
+  color: rgb(50, 50, 50);
 `;
 
 export const Column = styled.div`

@@ -1,10 +1,20 @@
 import React from "react";
-import { WholeWrapper, Wrapper, Column } from "../commonComponents";
+import {
+  WholeWrapper,
+  Wrapper,
+  Column,
+  TitleWrapper,
+  Title,
+} from "../commonComponents";
 
 class FreeBoard extends React.Component {
   render() {
     return (
       <WholeWrapper>
+        <TitleWrapper>
+          <Title>Free</Title>
+        </TitleWrapper>
+
         <Wrapper width="960px" height="25px" direction="row">
           <Column width={"5%"} isHead={true}>
             번호

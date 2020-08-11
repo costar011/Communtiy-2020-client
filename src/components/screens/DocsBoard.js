@@ -1,10 +1,19 @@
 import React from "react";
-import { WholeWrapper, Wrapper, Column } from "../commonComponents";
+import {
+  WholeWrapper,
+  Wrapper,
+  Column,
+  TitleWrapper,
+  Title,
+} from "../commonComponents";
 
 class DocsBoard extends React.Component {
   render() {
     return (
       <WholeWrapper>
+        <TitleWrapper>
+          <Title>Docs</Title>
+        </TitleWrapper>
         <Wrapper width="960px" height="25px" direction="row">
           <Column width={"5%"} isHead={true}>
             번호
