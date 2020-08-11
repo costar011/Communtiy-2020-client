@@ -6,6 +6,7 @@ import {
   TitleWrapper,
   Title,
   SearchInput,
+  C_Btn,
 } from "../commonComponents";
 
 class FreeBoard extends React.Component {
@@ -21,7 +22,7 @@ class FreeBoard extends React.Component {
         </TitleWrapper>
 
         <TitleWrapper width={"960px"} align={"flex-end"}>
-          <div>글쓰기</div>
+          <C_Btn>글쓰기</C_Btn>
         </TitleWrapper>
 
         <Wrapper width="960px" height="25px" direction="row">

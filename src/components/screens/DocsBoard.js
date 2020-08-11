@@ -6,6 +6,7 @@ import {
   TitleWrapper,
   Title,
   SearchInput,
+  C_Btn,
 } from "../commonComponents";
 
 class DocsBoard extends React.Component {
@@ -18,6 +19,10 @@ class DocsBoard extends React.Component {
 
         <TitleWrapper>
           <SearchInput />
+        </TitleWrapper>
+
+        <TitleWrapper width={"960px"} align={"flex-end"}>
+          <C_Btn>글쓰기</C_Btn>
         </TitleWrapper>
 
         <Wrapper width="960px" height="25px" direction="row">

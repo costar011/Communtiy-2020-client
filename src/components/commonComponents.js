@@ -3,6 +3,19 @@ import styled from "styled-components";
 const BORDER = `1px solid rgb(140, 140, 140)`;
 const BORDER_RADIUS = `4px`;
 
+const BOX_SHADOW = `2px 3px 3px rgb(180,180,180)`;
+
+const BASIC_BUTTON = `
+  width: 120px;
+  height: 30px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #fff
+  border-radius: ${BORDER_RADIUS};
+  box-shadow: ${BOX_SHADOW};
+  `;
+
 const C_COLOR = `#45aaf2`;
 const R_COLOR = `#2d98da`;
 const U_COLOR = `#4bcffa`;
@@ -90,4 +103,25 @@ export const Column = styled.div`
       : ` line-height: 25px;
   text-align: center;
   border-bottom: ${BORDER};`}
+`;
+
+export const C_Btn = styled.button`
+  ${BASIC_BUTTON}
+  
+  background:${C_COLOR};
+`;
+
+export const R_Btn = styled.button`
+  ${BASIC_BUTTON}
+  background:${R_COLOR};
+`;
+
+export const U_Btn = styled.button`
+  ${BASIC_BUTTON}
+  background:${U_COLOR};
+`;
+
+export const D_Btn = styled.button`
+  ${BASIC_BUTTON}
+  background:${D_COLOR};
 `;
