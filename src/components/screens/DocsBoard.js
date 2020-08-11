@@ -5,6 +5,7 @@ import {
   Column,
   TitleWrapper,
   Title,
+  SearchInput,
 } from "../commonComponents";
 
 class DocsBoard extends React.Component {
@@ -14,6 +15,11 @@ class DocsBoard extends React.Component {
         <TitleWrapper>
           <Title>Docs</Title>
         </TitleWrapper>
+
+        <TitleWrapper>
+          <SearchInput />
+        </TitleWrapper>
+
         <Wrapper width="960px" height="25px" direction="row">
           <Column width={"5%"} isHead={true}>
             번호

@@ -3,6 +3,11 @@ import styled from "styled-components";
 const BORDER = `1px solid rgb(140, 140, 140)`;
 const BORDER_RADIUS = `4px`;
 
+const C_COLOR = `#45aaf2`;
+const R_COLOR = `#2d98da`;
+const U_COLOR = `#4bcffa`;
+const D_COLOR = `#cf1b1b`;
+
 export const WholeWrapper = styled.div`
   width: 100%;
   height: calc(100vh - 80px);
@@ -41,18 +46,33 @@ export const Wrapper = styled.div`
 `;
 
 export const TitleWrapper = styled.div`
-  width: 100%;
-  margin: 100px 0px;
+  width: ${(props) => props.width || `100%`};
+  margin: 50px 0px;
 
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: ${(props) => props.align || `center`};
   justify-content: center;
 `;
 
 export const Title = styled.h2`
   font-size: 26px;
   color: rgb(50, 50, 50);
+`;
+
+export const SearchInput = styled.input`
+  width: 240px;
+  height: 30px;
+  padding: 0px 5px;
+  outline: none;
+  border: none;
+  background: none;
+  border-bottom: ${BORDER};
+  transition: 0.5s;
+
+  &:focus {
+    border-bottom: 1px solid #48dbfb;
+  }
 `;
 
 export const Column = styled.div`
