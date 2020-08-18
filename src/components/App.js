@@ -5,6 +5,7 @@ import FreeBoard from "./screens/FreeBoard";
 import DocsBoard from "./screens/DocsBoard";
 import GallaryBoard from "./screens/GallaryBoard";
 import Hedaer from "./screens/Header";
+import Write from "./screens/Write";
 
 class App extends React.Component {
   render() {
@@ -16,6 +17,7 @@ class App extends React.Component {
         <Route exact path="/freeboard" component={FreeBoard} />
         <Route exact path="/docsboard" component={DocsBoard} />
         <Route exact path="/gallaryboard" component={GallaryBoard} />
+        <Route exact path="/write/:boardType" component={Write} />
       </div>
     );
   }
