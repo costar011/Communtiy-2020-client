@@ -47,17 +47,15 @@ const TextArea = styled.textarea`
   }
 `;
 
-class Write extends React.Component {
+class Detail extends React.Component {
   render() {
     return (
       <Wrapper>
-        <Title>
-          {console.log(this.props.match.params.boardType)}게시글 작성하기
-        </Title>
+        <Title>게시글 상세보기</Title>
 
-        <TextInput type="text" placeholder="Title..." />
-        <TextInput type="text" placeholder="Author..." />
-        <TextArea placeholder="Description..." />
+        <TextInput type="text" readOnly={true} />
+        <TextInput type="text" readOnly={true} />
+        <TextArea readOnly={true} />
 
         <Wrapper direction={`row`}>
           <C_Btn>작성하기</C_Btn>
@@ -67,5 +65,4 @@ class Write extends React.Component {
     );
   }
 }
-
-export default Write;
+export default Detail;
