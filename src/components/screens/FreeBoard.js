@@ -10,8 +10,16 @@ import {
   C_Btn,
 } from "../commonComponents";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 class FreeBoard extends React.Component {
+  componentDidMount = async () => {
+    try {
+      await axios
+        .post("/api/getFreeboardData")
+        .then((response) => console.log(response));
+    } catch (e) {}
+  };
   render() {
     return (
       <WholeWrapper>
