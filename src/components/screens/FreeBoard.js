@@ -13,14 +13,25 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 class FreeBoard extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      datum: null,
+    };
+  }
   componentDidMount = async () => {
     try {
-      await axios
-        .post("/api/getFreeboardData")
-        .then((response) => console.log(response));
+      await axios.post("/api/getFreeboardData").then((response) =>
+        this.setState({
+          datum: response.data,
+        })
+      );
     } catch (e) {}
   };
   render() {
+    const { datum } = this.state;
+
     return (
       <WholeWrapper>
         <TitleWrapper>
@@ -56,65 +67,39 @@ class FreeBoard extends React.Component {
           </Column>
         </Wrapper>
         {/* -- DATA AREA START */}
-        <Wrapper
-          width="960px"
-          height="25px"
-          direction="row"
-          isData={true}
-          onClick={() => this.props.history.push("/detail/anyID")}
-        >
-          <Column width={"5%"} isHead={false}>
-            1
-          </Column>
-          <Column width={"40%"} isHead={false}>
-            This is coding ...
-          </Column>
-          <Column width={"15%"} isHead={false}>
-            yerim
-          </Column>
-          <Column width={"20%"} isHead={false}>
-            20200810
-          </Column>
-          <Column width={"20%"} isHead={false}>
-            500
-          </Column>
-        </Wrapper>
+        {datum ? (
+          datum.map((data, idx) => {
+            return (
+              <Wrapper
+                key={data.refkey}
+                width="960px"
+                height="25px"
+                direction="row"
+                isData={true}
+                onClick={() => this.props.history.push("/detail/anyID")}
+              >
+                <Column width={"5%"} isHead={false}>
+                  {idx + 1}
+                </Column>
+                <Column width={"40%"} isHead={false}>
+                  {data.title}
+                </Column>
+                <Column width={"15%"} isHead={false}>
+                  {data.author}
+                </Column>
+                <Column width={"20%"} isHead={false}>
+                  {data.registDate}
+                </Column>
+                <Column width={"20%"} isHead={false}>
+                  {data.hit}
+                </Column>
+              </Wrapper>
+            );
+          })
+        ) : (
+          <div>Loding...</div>
+        )}
 
-        <Wrapper width="960px" height="25px" direction="row" isData={true}>
-          <Column width={"5%"} isHead={false}>
-            2
-          </Column>
-          <Column width={"40%"} isHead={false}>
-            Help coding!
-          </Column>
-          <Column width={"15%"} isHead={false}>
-            won
-          </Column>
-          <Column width={"20%"} isHead={false}>
-            20200810
-          </Column>
-          <Column width={"20%"} isHead={false}>
-            150
-          </Column>
-        </Wrapper>
-
-        <Wrapper width="960px" height="25px" direction="row" isData={true}>
-          <Column width={"5%"} isHead={false}>
-            3
-          </Column>
-          <Column width={"40%"} isHead={false}>
-            Screen React
-          </Column>
-          <Column width={"15%"} isHead={false}>
-            yul
-          </Column>
-          <Column width={"20%"} isHead={false}>
-            20200810
-          </Column>
-          <Column width={"20%"} isHead={false}>
-            250
-          </Column>
-        </Wrapper>
         {/* -- DATA AREA END */}
       </WholeWrapper>
     );
