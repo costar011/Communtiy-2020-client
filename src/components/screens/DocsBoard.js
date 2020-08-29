@@ -42,7 +42,7 @@ class DocsBoard extends React.Component {
         </TitleWrapper>
 
         <TitleWrapper width={"960px"} align={"flex-end"}>
-          <Link to={`write/docs`}>
+          <Link to={`/write/docs`}>
             <C_Btn>글쓰기</C_Btn>
           </Link>
         </TitleWrapper>

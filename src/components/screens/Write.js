@@ -48,24 +48,84 @@ const TextArea = styled.textarea`
 `;
 
 class Write extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      title: "",
+      author: "",
+      description: "",
+    };
+  }
   render() {
+    const { title, author, description } = this.state;
     return (
       <Wrapper>
         <Title>
           {console.log(this.props.match.params.boardType)}게시글 작성하기
         </Title>
 
-        <TextInput type="text" placeholder="Title..." />
-        <TextInput type="text" placeholder="Author..." />
-        <TextArea placeholder="Description..." />
+        <TextInput
+          name="title"
+          value={title}
+          type="text"
+          placeholder="Title..."
+          onChange={this._valueChangeHandelr}
+        />
+        <TextInput
+          name="author"
+          value={author}
+          type="text"
+          placeholder="Author..."
+          onChange={this._valueChangeHandelr}
+        />
+        <TextArea
+          name="description"
+          value={description}
+          placeholder="Description..."
+          onChange={this._valueChangeHandelr}
+        />
 
         <Wrapper direction={`row`}>
-          <C_Btn>작성하기</C_Btn>
+          <C_Btn onClick={this._writeHandelr}>작성하기</C_Btn>
           <D_Btn onClick={() => this.props.history.goBack()}>작성취소</D_Btn>
         </Wrapper>
       </Wrapper>
     );
   }
+  _valueChangeHandelr = (e) => {
+    let nextstate = {};
+
+    nextstate[e.target.name] = e.target.value;
+    this.setState(nextstate);
+  };
+
+  _writeHandelr = () => {
+    const { title, author, description } = this.state;
+    if (!title || title.trim() === "") {
+      alert("제목을 입력해주세요.");
+      return;
+    }
+
+    if (!author || author.trim() === "") {
+      alert("작성자를 입력해주세요.");
+      return;
+    }
+
+    if (!description || description.trim() === "") {
+      alert("내용을 입력해주세요.");
+      return;
+    }
+
+    const inputData = {
+      title: title,
+      author: author,
+      description: description,
+      type: this.props.match.params.boardType,
+    };
+
+    console.log(inputData);
+  };
 }
 
 export default Write;
