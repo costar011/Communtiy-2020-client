@@ -125,9 +125,18 @@ class Write extends React.Component {
       type: this.props.match.params.boardType,
     };
 
-    await axios.post("/api/writeBoard", {
-      params: { inputData },
-    });
+    await axios
+      .post("/api/writeBoard", {
+        params: { inputData },
+      })
+      .then((response) => {
+        if (response.data === 0) {
+          alert("실패");
+        } else {
+          alert("성공");
+          this.props.history.push(`/${this.props.match.params.boardType}board`);
+        }
+      });
   };
 }
 
